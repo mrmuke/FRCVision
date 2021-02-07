@@ -1,5 +1,4 @@
 from imutils.video import VideoStream
-import numpy as np
 import cv2
 import imutils
 import time
@@ -8,6 +7,7 @@ KNOWN_WIDTH=7.0
 def distance_to_camera(knownWidth, focalLength, perWidth):
 	# compute and return the distance from the maker to the camera
 	return (knownWidth * focalLength) / perWidth
+    
 focal = 403.66667374320656
 
 greenLower = (20, 100, 100)
@@ -42,9 +42,6 @@ while True:
 	center = None
 	# only proceed if at least one contour was found
 	if len(cnts) > 0:
-		# find the largest contour in the mask, then use
-		# it to compute the minimum enclosing circle and
-		# centroid
 		#c = sorted(cnts,key=cv2.contourArea,reverse=True)[:3]
 		c=max(cnts,key=cv2.contourArea)
 		#for circle in c:
@@ -74,7 +71,7 @@ while True:
 			cv2.putText(frame, string,
 			(frame.shape[1] - 500, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,
 			2.0, (0, 255, 0), 3)
-			print(orientation)
+			print(orientation)#shooter testing, tape detection, rasberry pi, multiple ball, send signals, ask jack about usaco
 
 			
 			
