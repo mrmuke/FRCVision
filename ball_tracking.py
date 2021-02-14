@@ -2,7 +2,10 @@ from imutils.video import VideoStream
 import cv2
 import imutils
 import time
-
+from networktables import NetworkTables
+NetworkTables.initialize(server = 'roborio-3734-frc.local')
+print(NetworkTables.isConnected())
+sd = NetworkTables.getTable("Vision")
 KNOWN_WIDTH=7.0
 def distance_to_camera(knownWidth, focalLength, perWidth):
 	# compute and return the distance from the marker to the camera
@@ -72,6 +75,10 @@ while True:
 			(frame.shape[1] - 500, frame.shape[0] - 20), cv2.FONT_HERSHEY_SIMPLEX,
 			2.0, (0, 255, 0), 3)
 			print(orientation)#shooter testing, tape detection, rasberry pi, multiple ball, send signals, ask jack about usaco
+			
+				
+			sd.putNumber("distance",inches)#doesn't show up in table
+			sd.putString("orientation",orientation)
 
 			
 			
@@ -84,7 +91,7 @@ while True:
 
 	if key == ord('q'):
 		break
-	
+NetworkTables.shutdown()
 vs.stop()
 
 cv2.destroyAllWindows()
