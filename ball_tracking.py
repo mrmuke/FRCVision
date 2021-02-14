@@ -5,7 +5,7 @@ import time
 
 KNOWN_WIDTH=7.0
 def distance_to_camera(knownWidth, focalLength, perWidth):
-	# compute and return the distance from the maker to the camera
+	# compute and return the distance from the marker to the camera
 	return (knownWidth * focalLength) / perWidth
     
 focal = 403.66667374320656
