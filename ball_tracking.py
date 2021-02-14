@@ -3,7 +3,7 @@ import cv2
 import imutils
 import time
 from networktables import NetworkTables
-NetworkTables.initialize(server = 'roborio-3734-frc.local')
+NetworkTables.initialize(server = '10.37.34.2')#NetworkTables.initialize(server = 'roborio-3734-frc.local')
 print(NetworkTables.isConnected())
 sd = NetworkTables.getTable("Vision")
 KNOWN_WIDTH=7.0
